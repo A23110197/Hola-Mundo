@@ -1,8 +1,22 @@
 #include<iostream>
+#include<Mascota.hpp>
+#include<Alimento.hpp>
+
 using namespace std;
+
 int main(int argc, char const *argv[])
 {
-    cout<<"Hola_"<<"23110197"<<endl;
-    /* code */
+    Mascota m1;
+    Mascota m2;
+
+    Alimento a1(5);
+    Alimento a2(2);
+    m1.comer(a1);
+    m2.comer(a2);
+
+    cout<<"Mascota 1 Energia:"<<m1.LeerEnergia()<<endl;
+    cout<<"Mascota 2 Energia:"<<m2.LeerEnergia()<<endl;
+
+
     return 0;
 }

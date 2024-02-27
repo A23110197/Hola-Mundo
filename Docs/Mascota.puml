@@ -1,0 +1,50 @@
+@startuml Mascota
+
+class Mascota
+class Alimento
+class Comida
+class Juguete
+class Pelota
+class Agua
+class Suciedad
+class Baño
+class Energia
+class Felicidad
+class Tristeza
+class Emocion
+class Dueño
+class Carro
+class Habitacion
+class Luz
+class Aburrimiento
+class Color
+class Hambre
+class Necesidad
+class Sed
+class Bañarse
+class Jugar
+class Ropa
+
+Comida--|>Alimento
+Alimento--o Mascota
+Pelota--|>Juguete
+Mascota o--Juguete
+Agua--|>Alimento
+Baño--o Mascota
+Felicidad--|>Emocion
+Tristeza--|>Emocion
+Emocion--*Mascota
+Mascota*--Energia
+Mascota*--Suciedad
+Mascota*-- Dueño
+Carro--|>Juguete
+Habitacion--*Mascota
+Luz--*Habitacion
+Aburrimiento--|>Emocion
+Habitacion*--Color
+Necesidad<|--Hambre
+Mascota*--Necesidad
+Necesidad<|--Sed
+Bañarse--|>Necesidad
+Jugar--|>Necesidad
+Mascota o-- Ropa
