@@ -1,50 +1,68 @@
 @startuml Mascota
 
-class Mascota
-class Alimento
-class Comida
-class Juguete
-class Pelota
-class Agua
-class Suciedad
-class Baño
-class Energia
+package Sentimiento{
+class Sentimiento
 class Felicidad
 class Tristeza
-class Emocion
-class Dueño
-class Carro
-class Habitacion
-class Luz
+class Cansancio
 class Aburrimiento
-class Color
-class Hambre
+}
+package Alimento{
+class Alimento
+class Comida
+class Agua
+}
+package Juguete{
+class Juguete
+class Pelota
+class Carro
+}
+package Necesidad{
 class Necesidad
+class Hambre
 class Sed
-class Bañarse
+class Bañar
 class Jugar
+class Limpieza
+}
+package Habitacion{
+class Habitacion
+class Baño
+class Color
+class Luz
+}
+
+class Mascota{
+-habitacion:Habitacion
++Comer(Alimento)
++Usar(Ropa)
++Consumir(Energia)
+}
+class Energia
+class Dueño
 class Ropa
 
 Comida--|>Alimento
-Alimento--o Mascota
+Mascota"1" o-- "1"Alimento
 Pelota--|>Juguete
-Mascota o--Juguete
+Mascota"1" o-- "1..*"Juguete
 Agua--|>Alimento
-Baño--o Mascota
-Felicidad--|>Emocion
-Tristeza--|>Emocion
-Emocion--*Mascota
-Mascota*--Energia
-Mascota*--Suciedad
+Felicidad--|>Sentimiento
+Tristeza--|>Sentimiento
+Sentimiento"1" --* "1"Mascota
+Mascota"1" o-- "*"Energia
 Mascota*-- Dueño
 Carro--|>Juguete
 Habitacion--*Mascota
 Luz--*Habitacion
-Aburrimiento--|>Emocion
+Aburrimiento--|>Sentimiento
 Habitacion*--Color
 Necesidad<|--Hambre
 Mascota*--Necesidad
 Necesidad<|--Sed
-Bañarse--|>Necesidad
+Bañar--|>Necesidad
 Jugar--|>Necesidad
 Mascota o-- Ropa
+Habitacion*--Baño
+Limpieza--|>Necesidad
+Cansancio--|>Sentimiento
