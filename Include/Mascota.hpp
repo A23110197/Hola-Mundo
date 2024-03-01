@@ -1,20 +1,20 @@
+#pragma once
 #include<Alimento.hpp>
 
 class Mascota
 {
 private:
     /* implementacion oculta*/
-    int Energia;
-    int Felicidad;
+    int vida;
 public:
 /* interfaz*/
     Mascota() {
-        this->Energia=0
-        this->Felicidad=0
+        this->vida = 0;
     }
     ~Mascota() {}
-    void comer(){
-        Energia +=1;
+    void comer(Alimento alimento){
+        vida +=
+        alimento.ExtraerEnergia();
     }
     void jugar(){
         Felicidad -=1;
